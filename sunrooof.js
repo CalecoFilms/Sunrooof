@@ -89,7 +89,7 @@ $('.heading-3').each(function(){
         opacity: 0,
       	scale: 0.8,
         rotationZ: 20,
-        y: "100%",
+        x: "100%",
         duration:0.7,
         stagger: {amount : 0.5},
         ease: "expo"
