@@ -86,10 +86,10 @@ $('.heading-3').each(function(){
     
     let tl = gsap.timeline({ paused: true });
     tl.from(heroText.words,{
-        opacity: 0,
+        opacity: 1,
       	scale: 0.8,
-        rotationZ: 20,
-        y: "100%",
+        rotationY: 20,
+        x: "100%",
         duration:0.7,
         stagger: {amount : 0.5},
         ease: "expo"
