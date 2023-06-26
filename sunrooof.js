@@ -357,7 +357,83 @@ $(".div-section.hero").each(function (index) {
         }, "<0%");
     }
   });
+
+    // Animate to
+    $(".div-section.reviews").each(function (index) {
+      let triggerElement = $(this);
+      let targetElement = $(".div-review-data");
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: triggerElement,
+          // trigger element - viewport
+          start: "top top",
+          end: "95% bottom",
+          markers: false,
+          scrub: 0.8
+        }
+      });
+    
+      if (isMobileDevice()) {
+        // Mobile animation
+        tl.to(targetElement, {
+          x: "-75%",
+          duration: 1
+        }, "+=2.5%")
+          .to('#review-indicator-bar', {
+            width: "100%",
+            duration: 1
+          }, "<0%");
+      } else {
+        // Desktop animation
+        tl.to(targetElement, {
+          x: "-50%",
+          duration: 1
+        }, "+=2.5%")
+          .to('#review-indicator-bar', {
+            width: "100%",
+            duration: 1
+          }, "<0%");
+      }
+    });
   
+        // Animate to
+        $(".div-section.team").each(function (index) {
+          let triggerElement = $(this);
+          let targetElement = $(".div-grid-team");
+          let tWP = $(".div-team").width();
+          let tW = $(targetElement).width();
+          $(window).on('resize', function() {
+            tWP = $(".div-team").width();
+            tW = $(targetElement).width();
+          });
+          
+          let tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: triggerElement,
+              // trigger element - viewport
+              start: "top top",
+              end: "95% bottom",
+              markers: false,
+              scrub: 0.8
+            }
+          });
+        
+          if (isMobileDevice()) {
+            // Mobile animation
+            tl.to(targetElement, {
+              x: "-100%",
+              duration: 1
+            }, "+=2.5%")
+          } else {
+            // Desktop animation
+            tl.to(targetElement, {
+              marginLeft: "3.9rem",
+              x: -(tW/tWP*0.5)*50 + '%',
+              duration: 1
+            },"+=2.5%");
+          }
+        });
+
   // Function to check if the device is mobile
   function isMobileDevice() {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
