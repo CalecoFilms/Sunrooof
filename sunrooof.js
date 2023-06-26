@@ -427,7 +427,7 @@ $(".div-section.hero").each(function (index) {
           } else {
             // Desktop animation
             tl.to(targetElement, {
-              marginLeft: "3.9rem",
+              marginLeft: "-3.93rem",
               x: -(tW/tWP*0.5)*50 + '%',
               duration: 1
             },"+=2.5%");
